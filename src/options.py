@@ -1,4 +1,5 @@
 import random
+import bracket
 
 def default():
     players = ["alex","murilo","victor","ivan","pedro arthur", "apolo", "pedro henrique", "luis andre"]
@@ -11,35 +12,22 @@ def default():
         numero += 1
 
 def custom():
-    players = []
+    players = bracket.getPlayers()
 
-    while True:
-        player = input("digita o nome da lenda ('end' pra terminar):  ")
-        if player == "end":
-            print("")
-            break
-        elif player == "":
-            print("digita um nome bro")
+    if players != 0:
+        random.shuffle(players)
+        numero = 1
 
-        players.append(player)
+        for x in range(0, len(players), 2):
+            print(f"Partida {numero}")
 
-    random.shuffle(players)
-    numero = 1
+            try:
+                print(f"{players[x]} vs {players[x + 1]} \n")
 
-    if len(players) <= 2 :
-        print("pq bro bota mais gente ai")
-        return 0
+            except IndexError:
+                print(f"{players[-1]} vs quem perdeu na ultima")
 
-    for x in range(0, len(players), 2):
-        print(f"Partida {numero}")
-
-        try:
-            print(f"{players[x]} vs {players[x + 1]} \n")
-
-        except IndexError:
-            print(f"{players[-1]} vs quem perdeu na ultima")
-
-        numero += 1
+            numero += 1
 
     
 
@@ -47,9 +35,9 @@ def customDefault():
     players = ["alex","murilo","victor","ivan","pedro arthur", "apolo", "pedro henrique", "luis andre"]
 
     while True:
-        player = input("digita o nome da lenda ('end' pra terminar):  ")
+        player = input(f"digita o nome da lenda ('Q' pra acabar): ")
 
-        if player == "end":
+        if player == "Q":
             print("")
             break
         elif player in players:
@@ -59,10 +47,10 @@ def customDefault():
             players.append(player)
 
     random.shuffle(players)
-    numero = 1
+    number = 1
 
     for x in range(0, len(players), 2):
-        print(f"Partida {numero}")
+        print(f"Partida {number}")
 
         try:
             print(f"{players[x]} vs {players[x + 1]} \n")
@@ -70,4 +58,11 @@ def customDefault():
         except IndexError:
             print(f"{players[-1]} vs quem perdeu na ultima")
 
-        numero += 1
+        number += 1
+
+def cli():
+    bracket.interfaceRun()
+    
+
+
+    

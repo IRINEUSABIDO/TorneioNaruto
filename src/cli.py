@@ -5,7 +5,8 @@ def main():
     options = {
     "1": default,
     "2": custom,
-    "3": customDefault
+    "3": customDefault,
+    "4": cli
     }
 
     # interface
@@ -14,11 +15,12 @@ def main():
         print("1. padrao")
         print("2. customizado")
         print("3. customizado ( padrao )")
-        print("4. sair")
+        print("4. interface ")
+        print("5. sair")
         optionInput = input(": ")
         print("")
 
-        if optionInput == "4":
+        if optionInput == "5":
             print("saindo...")
             break
 
