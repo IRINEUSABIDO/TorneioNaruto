@@ -18,6 +18,8 @@ def custom():
         if player == "end":
             print("")
             break
+        elif player == "":
+            print("digita um nome bro")
 
         players.append(player)
 
