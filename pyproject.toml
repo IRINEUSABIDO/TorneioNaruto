@@ -5,3 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+
+[project.scripts]
+NARUTO = "cli:main"
+
+[tool.pyproject-appimage]
+script = "NARUTO"
+output = "torneio-naruto.AppImage"
