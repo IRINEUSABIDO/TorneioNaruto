@@ -1,5 +1,4 @@
 from options import *
-from utils import *
 
 def main():
 
@@ -8,11 +7,6 @@ def main():
     "2": custom,
     "3": customDefault
     }
-
-    # cria .json se n tiver
-    if readData() == False:
-        createData()
-
 
     # interface
     while True:
